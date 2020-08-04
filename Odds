@@ -1,0 +1,25 @@
+echo "======"
+echo "Odds"
+echo "======"
+
+echo "What are the odds?"
+echo "Odds out of: "
+read odds
+echo "Pick a number: "
+read number
+
+if [[ $number -gt $odds ]]
+then
+	echo "Number not in range"
+	exit
+fi
+
+$computer
+computer=$(shuf -i 0-$odds -n 1)
+echo "Computer: $computer"
+if [[ $number = $computer ]]
+then
+	echo "You Lose!"
+else
+	echo "You Win!"
+fi
